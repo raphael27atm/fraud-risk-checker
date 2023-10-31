@@ -1,4 +1,4 @@
-### Instalação
+### Setup
 
 ```bash
 cd fraud-risk-checker
@@ -17,9 +17,7 @@ cd fraud-risk-checker
   exit
 ```
 
-### Desenvolvimento
-
-- Abrir terminal
+### Dev
 
 ```bash
 cd fraud-risk-checker
