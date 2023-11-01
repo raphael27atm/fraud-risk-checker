@@ -8,7 +8,7 @@ module API::V1
       if FraudDetectionService.new(@transaction).check
         render json: {
           transaction_id: @transaction.transaction_id,
-          recommendation: 'reject'
+          recommendation: 'deny'
         }
       else
         @transaction.save

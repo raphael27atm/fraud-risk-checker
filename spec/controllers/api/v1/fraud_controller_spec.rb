@@ -77,7 +77,7 @@ RSpec.describe API::V1::FraudController, type: :controller do
         parsed_body = JSON.parse(response.body)
 
         expect(parsed_body['transaction_id']).to eq(transaction_attributes[:transaction_id])
-        expect(parsed_body['recommendation']).to eq 'reject'
+        expect(parsed_body['recommendation']).to eq 'deny'
       end
     end
 
