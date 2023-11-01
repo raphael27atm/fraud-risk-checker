@@ -33,6 +33,8 @@ jobs:
           gem install bundler -v 2.4.1
           bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs=4 --retry=3
       - name: Load Schema
-        run: bundle exec rails db:schema:load RAILS_ENV=test
+        run: |
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundle exec rspec

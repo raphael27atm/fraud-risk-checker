@@ -19,12 +19,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   username: user
   password: password
+  host: 127.0.0.1
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: fraud_risk_checker_development
 
-  test:
+test:
   <<: *default
   database: fraud_risk_checker_test
