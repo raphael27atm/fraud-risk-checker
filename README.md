@@ -5,7 +5,7 @@ In this repository, we deeply dive into the intricacies of the acquirer market, 
 ### **Table of Contents**
 topic | link
 ------ | ------
-Getting Started | [link](https://github.com/raphael27atm/fraud-risk-checker/wiki/Getting-Started-%E2%80%90-Setup)
+Getting Started | [link](https://github.com/raphael27atm/fraud-risk-checker/wiki/Getting-Started)
 Understand the Industry | [link](https://github.com/raphael27atm/fraud-risk-checker/wiki/Understand-the-Industry)
 Get Your Hands Dirty | [link](https://github.com/raphael27atm/fraud-risk-checker/wiki/Get-your-hands-dirty)
 Solve the Problem | [link](https://github.com/raphael27atm/fraud-risk-checker/wiki/Solve-the-Problem)
