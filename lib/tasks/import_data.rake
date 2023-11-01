@@ -3,6 +3,8 @@
 namespace :import do
   desc 'Import data'
   task run: :environment do
+    require 'csv'
+
     file_path = "#{Rails.root}/db/data/data.csv"
 
     CSV.foreach(file_path, headers: true) do |row|

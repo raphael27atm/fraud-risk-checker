@@ -24,7 +24,7 @@ class Transaction < ApplicationRecord
   end
 
   def valid_card_number_format
-    unless valid_card_number?(card_number)
+    unless valid_card_number?(card_number.to_s.squish)
       errors.add(:card_number, 'must be 16 characters long and contain only numbers and (*)asterisks')
     end
   end
