@@ -151,5 +151,17 @@ RSpec.describe FraudDetectionService do
         end
       end
     end
+
+    describe '#multiple_small_transactions?' do
+      pending 'waiting for implementation'
+    end
+
+    describe '#high_transaction_amount?s' do
+      pending 'waiting for implementation'
+    end
+
+    describe '#retry_payment?' do
+      pending 'waiting for implementation'
+    end
   end
 end

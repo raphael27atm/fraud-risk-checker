@@ -14,7 +14,7 @@ class FraudDetectionService
       user_chargeback?(1, 5.days) ||
       multiple_small_transactions?(5, 1.day) ||
       high_transaction_amount?(1000.00, 5.days) ||
-      retry_payment(5, 1.days)
+      retry_payment?(5, 1.days)
   end
 
   private
@@ -53,7 +53,7 @@ class FraudDetectionService
               .exists?
   end
 
-  def retry_payment(count, date)
+  def retry_payment?(count, date)
     base_query.where(transaction_date: (transaction.transaction_date - date)..Float::INFINITY)
               .count >= count
   end
