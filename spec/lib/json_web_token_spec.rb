@@ -18,7 +18,7 @@ RSpec.describe JsonWebToken do
         token = described_class.encode(payload)
 
         expect(described_class.decode(token)).to include(
-          user_id: 1
+          { 'user_id'=> 1 }, { 'alg' => 'HS256'}
         )
       end
     end
