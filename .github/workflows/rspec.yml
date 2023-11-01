@@ -1,0 +1,40 @@
+name: Fraud Risk checker
+
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  build:
+    name: Build + Rspec
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14-alpine
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        # Add a health check
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Ruby version specified in `.ruby-version`
+        uses: eregon/use-ruby-action@master
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: gem-cache-${{ hashFiles('Gemfile.lock') }}
+      - name: Install dependencies
+        run: |
+          gem install bundler -v 2.4.1
+          bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs=4 --retry=3
+      - name: Load Schema
+        run: |
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
+      - name: Run tests
+        run: bundle exec rspec
